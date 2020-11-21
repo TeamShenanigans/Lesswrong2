@@ -114,7 +114,7 @@ const ModerationGuidelinesBox = ({classes, post}: {
       const eventProperties = {
         userId: currentUser._id,
         important: false,
-        intercom: true,
+        intercom: false,
         documentId: postWithDetails?.userId,
         targetState: !expanded
       };

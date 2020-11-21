@@ -57,7 +57,7 @@ export const useRecordPostView = (post: PostsBase): {recordPostView: any, isRead
         let eventProperties = {
           userId: currentUser._id,
           important: false,
-          intercom: true,
+          intercom: false,
           ...extraEventProperties
         };
 
@@ -99,7 +99,7 @@ export const useRecordTagView = (tag: TagFragment): {recordTagView: any, isRead:
         let eventProperties = {
           userId: currentUser._id,
           important: false,
-          intercom: true,
+          intercom: false,
           ...extraEventProperties
         };
 

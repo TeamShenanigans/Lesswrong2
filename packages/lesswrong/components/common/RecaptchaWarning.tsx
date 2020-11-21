@@ -36,8 +36,7 @@ const RecaptchaWarning = ({ currentUser, classes, children }: {
     case 'LessWrong':
     default:
       return <div className={classes.warningText}>
-        You've been flagged by our spam detection system. Please message an admin via
-        Intercom (the chat bubble in the bottom right corner) or send a private message to admin
+        You've been flagged by our spam detection system. Please contact an admin
         <Link className={classes.link} to="/users/habryka"> habryka</Link> to activate posting- and commenting-privileges on your account.
       </div>
   }
