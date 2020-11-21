@@ -3,12 +3,10 @@ import { forumTypeSetting, PublicInstanceSetting, hasEventsSetting } from './ins
 import { legacyRouteAcronymSetting } from './publicSettings';
 import { addRoute, PingbackDocument, RouterLocation } from './vulcan-lib/routes';
 
-const communitySubtitle = { subtitleLink: "/community", subtitle: "Community" };
 const rationalitySubtitle = { subtitleLink: "/rationality", subtitle: "Rationality: A-Z" };
 const hpmorSubtitle = { subtitleLink: "/hpmor", subtitle: "HPMoR" };
 const codexSubtitle = { subtitleLink: "/codex", subtitle: "SlateStarCodex" };
 const metaSubtitle = { subtitleLink: "/meta", subtitle: "Meta" };
-const walledGardenPortalSubtitle = { subtitleLink: '/walledGarden', subtitle: "Walled Garden"};
 const taggingDashboardSubtitle = { subtitleLink: '/tags/dashboard', subtitle: "Wiki-Tag Dashboard"}
 
 const aboutPostIdSetting = new PublicInstanceSetting<string>('aboutPostId', 'bJ2haLkcGeLtTWaD5', "warning") // Post ID for the /about route
@@ -358,20 +356,6 @@ if (forumTypeSetting.get() === 'LessWrong') {
       ...hpmorSubtitle,
     },
     {
-      name: 'Walled Garden',
-      path: '/walledGarden',
-      componentName: 'WalledGardenHome',
-      title: "Walled Garden",
-    },
-    {
-      name: 'Walled Garden Portal',
-      path: '/walledGardenPortal',
-      componentName: 'WalledGardenPortal',
-      title: "Walled Garden Portal",
-      ...walledGardenPortalSubtitle,
-      disableAutoRefresh: true,
-    },
-    {
       name: 'HPMOR.posts.single',
       path: '/hpmor/:slug',
       componentName: 'PostsSingleSlug',
@@ -428,52 +412,6 @@ if (hasEventsSetting.get()) {
       path: '/upcomingEvents',
       componentName: 'EventsUpcoming',
       title: "Upcoming Events by Day"
-    },
-
-    {
-      name: 'CommunityHome',
-      path: '/community',
-      componentName: 'CommunityHome',
-      title: "Community",
-      ...communitySubtitle
-    },
-    {
-      name: 'MeetupsHome',
-      path: '/meetups',
-      componentName: 'CommunityHome',
-      title: "Community"
-    },
-
-    {
-      name: 'AllLocalGroups',
-      path: '/allgroups',
-      componentName: 'AllGroupsPage',
-      title: "All Local Groups"
-    },
-
-    {
-      name:'Localgroups.single',
-      path: '/groups/:groupId',
-      componentName: 'LocalGroupSingle',
-      ...communitySubtitle
-    },
-    {
-      name:'events.single',
-      path: '/events/:_id/:slug?',
-      componentName: 'PostsSingle',
-      previewComponentName: 'PostLinkPreview',
-      ...communitySubtitle,
-      getPingback: (parsedUrl) => getPostPingbackById(parsedUrl, parsedUrl.params._id),
-      background: postBackground
-    },
-    {
-      name: 'groups.post',
-      path: '/g/:groupId/p/:_id',
-      componentName: 'PostsSingle',
-      previewComponentName: 'PostLinkPreview',
-      background: postBackground,
-      ...communitySubtitle,
-      getPingback: (parsedUrl) => getPostPingbackById(parsedUrl, parsedUrl.params._id),
     },
   );
 }
