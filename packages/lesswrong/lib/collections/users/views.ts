@@ -269,19 +269,3 @@ Users.addView("areWeNuked", function () {
   }
 })
 ensureIndex(Users, {petrovCodesEnteredHashed: 1})
-
-
-
-Users.addView("walledGardenInvitees", function () {
-  return {
-    selector: {
-      walledGardenInvite: true
-    },
-    options: {
-      sort: {
-        displayName: 1
-      }
-    }
-  }
-})
-ensureIndex(Users, {walledGardenInvite: 1})

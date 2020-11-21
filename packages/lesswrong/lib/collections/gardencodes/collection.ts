@@ -53,14 +53,6 @@ const schema: SchemaType<DbGardenCode> = {
     viewableBy: ['guests'],
     optional: true
   },
-  // gatherTownUsername: {
-  //   optional: true,
-  //   type: String,
-  //   canRead: ['guests'],
-  //   // canUpdate: ['members', 'admins', 'sunshineRegiment'],
-  //   canCreate: ['members', 'admins', 'sunshineRegiment'],
-  //   label: "Your Walled Garden Username"
-  // },
   deleted: {
     type: Boolean,
     viewableBy: ['guests'],
